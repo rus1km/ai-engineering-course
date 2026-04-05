@@ -81,7 +81,6 @@ def task_preprocess(**kwargs):
 def task_score(**kwargs):
     """Task 3: Score each resume against job description with LLM."""
     _add_to_path()
-
     from score import score_resume, JOB_DESCRIPTION  # also loads .env
 
     api_key = os.environ.get("OPENAI_KEY") or os.environ.get("OPENAI_API_KEY")

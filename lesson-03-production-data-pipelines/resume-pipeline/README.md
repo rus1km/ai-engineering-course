@@ -66,6 +66,9 @@ resume-pipeline/
         - cleaning_impact: HEAVILY_CLEANED / MODERATELY_CLEANED / MINIMAL
      → resume_analytics.duckdb
 ```
+**Flow:** PDF resumes → Extract → Preprocess (clean + PII redact) → Score with LLM
+
+Two ways to run: standalone Python script or full Airflow orchestration.
 
 ## Quick Start (standalone — no Airflow)
 
@@ -81,6 +84,10 @@ cp .env.example .env
 python dags/resume_dag.py
 
 # 4. Run dbt analytics
+# 1. Run full pipeline
+python dags/resume_dag.py
+
+# 2. View analytics in DuckDB
 python run_dbt.py
 ```
 
@@ -135,6 +142,38 @@ resume_file              score  recommendation  pii_risk_level  cleaning_impact
 06_minimal_resume.pdf       20  no              MEDIUM_RISK     MINIMAL_CHANGES
 03_pii_heavy_resume.pdf     10  no              HIGH_RISK       MODERATELY_CLEANED
 ```
+## Structure
+
+```
+resume-pipeline/
+├── dags/
+│   └── resume_dag.py           # Airflow DAG (works standalone too)
+├── scripts/
+│   └── extract.py              # PDF → clean text + PII redaction
+├── score.py                    # LLM scoring (GPT-4o-mini)
+├── run_dbt.py                  # DuckDB analytics (staging → mart)
+├── dbt_project/
+│   └── models/
+│       ├── stg_resumes.sql     # Raw staging
+│       └── mart_resumes.sql    # Scored + enriched
+├── data/
+│   └── resumes/                # 6 sample PDFs
+├── docker-compose.yml          # Airflow + Postgres
+├── requirements.txt            # Local dependencies
+├── requirements-airflow.txt    # Dependencies inside Docker
+└── .env.example
+```
+
+## Sample Resumes
+
+| File | Problem | PII Count |
+|------|---------|-----------|
+| `01_clean_resume.pdf` | None (baseline) | 2 |
+| `02_dirty_encoding_resume.pdf` | Smart quotes, boilerplate | 2 |
+| `03_pii_heavy_resume.pdf` | SSN, DOB, address, salary, references | **15** |
+| `04_very_long_resume.pdf` | Verbose (5 pages worth) | 9 |
+| `05_noisy_boilerplate_resume.pdf` | ATS system headers/metadata | 4 |
+| `06_minimal_resume.pdf` | Too little info | 1 |
 
 ## Why Airflow?
 
