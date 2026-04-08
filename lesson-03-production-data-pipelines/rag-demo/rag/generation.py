@@ -12,8 +12,6 @@ SYSTEM_PROMPT = (
 
 def ask_gpt(query: str, context_chunks: list[str], api_key: str) -> str:
     """Send context + query to GPT-4o-mini."""
-
-
     client = OpenAI(api_key=api_key)
     context = "\n---\n".join(context_chunks)
     resp = client.chat.completions.create(

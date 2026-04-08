@@ -83,6 +83,8 @@ def task_score(**kwargs):
     _add_to_path()
     from score import score_resume, JOB_DESCRIPTION  # also loads .env
 
+    from score import score_resume, JOB_DESCRIPTION  # also loads .env
+
     api_key = os.environ.get("OPENAI_KEY") or os.environ.get("OPENAI_API_KEY")
     if not api_key:
         print("WARNING: No OPENAI_KEY — skipping LLM scoring")
