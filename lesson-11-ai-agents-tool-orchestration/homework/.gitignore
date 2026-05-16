@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+logs/
+*.log
+results/*
+!results/summary_latest.md
+!results/summary_latest.json
+!results/runs_latest.json
+.streamlit/secrets.toml
