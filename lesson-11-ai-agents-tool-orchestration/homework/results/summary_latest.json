@@ -1,0 +1,46 @@
+{
+  "model_baseline": "anthropic/claude-sonnet-4-6",
+  "model_router": "anthropic/claude-haiku-4-5",
+  "model_analyst_advisor": "anthropic/claude-sonnet-4-6",
+  "model_safety": "anthropic/claude-haiku-4-5",
+  "baseline": {
+    "n_tasks": 18,
+    "latency_p50_ms": 19382,
+    "latency_p95_ms": 42409,
+    "cost_per_task_usd": 0.02519,
+    "cost_total_usd": 0.4534,
+    "tokens_in_per_task": 6540,
+    "tokens_out_per_task": 371,
+    "inter_agent_overhead_pct": 0.0,
+    "cost_by_agent_total": {
+      "baseline": 0.453402
+    },
+    "success_rate": 0.611,
+    "tool_selection_accuracy": 0.889,
+    "groundedness": 0.773,
+    "judge_score": 0.944,
+    "route_correct": 1.0
+  },
+  "crew": {
+    "n_tasks": 18,
+    "latency_p50_ms": 16174,
+    "latency_p95_ms": 49997,
+    "cost_per_task_usd": 0.02352,
+    "cost_total_usd": 0.42334,
+    "tokens_in_per_task": 6200,
+    "tokens_out_per_task": 540,
+    "inter_agent_overhead_pct": 6.73,
+    "cost_by_agent_total": {
+      "router": 0.012503,
+      "analyst": 0.256509,
+      "advisor": 0.138147,
+      "safety": 0.016177
+    },
+    "success_rate": 0.611,
+    "tool_selection_accuracy": 1.0,
+    "groundedness": 0.657,
+    "judge_score": 0.833,
+    "route_correct": 0.944
+  },
+  "task_count": 18
+}
