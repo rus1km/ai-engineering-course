@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Local config / secrets
+.env
+.env.local
+.env.*.local
+
+# Tests / dev artifacts
+tests/
+.coverage
+htmlcov/
+
+# Git / CI
+.git/
+.github/
+.gitignore
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Docs / project files not needed at runtime
+README.md
+STUDENT_TODO.md
+Makefile
+Dockerfile
+Dockerfile.naive
+docker-compose.yml
