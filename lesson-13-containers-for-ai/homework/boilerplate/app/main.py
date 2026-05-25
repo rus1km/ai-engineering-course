@@ -28,11 +28,12 @@ async def health():
 
 @app.get("/metadata")
 async def metadata():
+    ready = rag.ready
     return {
         "embedder": rag.embedder_name,
         "llm": rag.llm_model,
         "docs_count": rag.docs_count,
-        "ready": rag.ready,
+        "ready": ready,
     }
 
 
