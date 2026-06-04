@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "notes": {
+      "command": "/Users/rustammamedov/Develop/Projects/ai-engineering-course/lesson 16 - mcp-model-context-protocol/homework/.venv/bin/python",
+      "args": [
+        "/Users/rustammamedov/Develop/Projects/ai-engineering-course/lesson 16 - mcp-model-context-protocol/homework/server.py"
+      ],
+      "env": {
+        "NOTES_DB_PATH": "/Users/rustammamedov/.mcp_notes/notes.json"
+      }
+    }
+  }
+}

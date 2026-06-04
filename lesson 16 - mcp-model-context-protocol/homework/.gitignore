@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+# Local notes database (created at runtime, may contain personal data)
+notes.json
+*.json.tmp
+.DS_Store
