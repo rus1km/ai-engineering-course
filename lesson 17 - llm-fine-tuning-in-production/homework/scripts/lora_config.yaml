@@ -1,0 +1,28 @@
+# MLX-LM QLoRA config — fine-tune Llama 3.1 8B (4-bit) on support-email extraction.
+# Run from homework/ dir:  ./.venv/bin/mlx_lm.lora --config scripts/lora_config.yaml
+
+model: "mlx-community/Meta-Llama-3.1-8B-Instruct-4bit"   # 4-bit base => LoRA on quantized weights = QLoRA
+train: true
+data: "data/mlx"            # expects train.jsonl + valid.jsonl (chat format)
+adapter_path: "adapters"    # where LoRA weights are saved (~few MB)
+
+# ~3 epochs: 280 train examples / batch 4 = 70 iters/epoch * 3 = 210
+iters: 210
+batch_size: 4
+num_layers: 16              # LoRA on last 16 of 32 transformer blocks
+learning_rate: 1e-4
+max_seq_length: 1024        # our emails+JSON are short (<300 tokens)
+grad_checkpoint: false
+seed: 42
+
+steps_per_report: 10
+steps_per_eval: 50
+save_every: 70
+val_batches: 5
+
+# LoRA r=16, alpha=32.  MLX applies `scale` as a direct multiplier, where
+# PEFT scaling = alpha / rank => scale = 32 / 16 = 2.0
+lora_parameters:
+  rank: 16
+  scale: 2.0
+  dropout: 0.0

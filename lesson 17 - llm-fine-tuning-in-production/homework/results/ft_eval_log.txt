@@ -1,0 +1,46 @@
+Loading mlx-community/Meta-Llama-3.1-8B-Instruct-4bit + adapter(adapters) ...
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 90851.35it/s]
+  [1/30] ✓ valid=True exact=True
+  [2/30] ✗ valid=True exact=False
+  [3/30] ✗ valid=True exact=False
+  [4/30] ✓ valid=True exact=True
+  [5/30] ✗ valid=True exact=False
+  [6/30] ✗ valid=True exact=False
+  [7/30] ✗ valid=True exact=False
+  [8/30] ✓ valid=True exact=True
+  [9/30] ✗ valid=True exact=False
+  [10/30] ✗ valid=True exact=False
+  [11/30] ✓ valid=True exact=True
+  [12/30] ✓ valid=True exact=True
+  [13/30] ✓ valid=True exact=True
+  [14/30] ✓ valid=True exact=True
+  [15/30] ✓ valid=True exact=True
+  [16/30] ✓ valid=True exact=True
+  [17/30] ✓ valid=True exact=True
+  [18/30] ✓ valid=True exact=True
+  [19/30] ✓ valid=True exact=True
+  [20/30] ✗ valid=True exact=False
+  [21/30] ✓ valid=True exact=True
+  [22/30] ✓ valid=True exact=True
+  [23/30] ✓ valid=True exact=True
+  [24/30] ✓ valid=True exact=True
+  [25/30] ✓ valid=True exact=True
+  [26/30] ✓ valid=True exact=True
+  [27/30] ✓ valid=True exact=True
+  [28/30] ✓ valid=True exact=True
+  [29/30] ✓ valid=True exact=True
+  [30/30] ✓ valid=True exact=True
+
+============================================================
+Model: mlx-community/Meta-Llama-3.1-8B-Instruct-4bit + adapter(adapters)
+JSON valid:  100.0%
+Exact match: 73.3%
+Field accuracy:
+  customer_name      100.0%
+  product            90.0%
+  issue_category     96.7%
+  urgency            90.0%
+  summary            83.3%
+Avg I/O tokens: 128.1 / 40.8
+Latency: 2.38s/example  (71s total)
+Saved -> /Users/rustammamedov/Develop/Projects/ai-engineering-course/lesson 17 - llm-fine-tuning-in-production/homework/results/finetuned_8b_mlx.json
