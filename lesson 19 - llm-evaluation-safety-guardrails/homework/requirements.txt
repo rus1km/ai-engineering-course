@@ -1,0 +1,7 @@
+# Core pipeline — stdlib only, нічого не треба для offline-прогону.
+
+# Лише для LLM_MODE=live (реальний Claude):
+anthropic>=0.40
+
+# Dev / tests:
+pytest>=8.0
